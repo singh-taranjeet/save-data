@@ -1,5 +1,5 @@
 {
-  "name": "save-data",
+  "name": "minimal_ui/save-data",
   "version": "1.0.3",
   "description": "Save all data in localstorage",
   "author": "singh.taranjeet",
