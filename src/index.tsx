@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {createContext} from 'react';
 import styles from './styles.module.css'
 
 interface Props {
   text: string
 }
-interface updateConfig {
+interface UpdateConfig {
   fetcher: () => any;
   url: string;
   checkForUpdate: boolean
@@ -23,7 +23,7 @@ export const Provider = (props: {children: React.ReactNode}) => {
 
   const [store, setStore] = useState<any>({});
 
-  async function updateStore(config: updateConfig) {
+  async function updateStore(config: UpdateConfig) {
 
     const {fetcher, url, checkForUpdate = true} = config;
 
@@ -49,6 +49,21 @@ export const Provider = (props: {children: React.ReactNode}) => {
       }
     }
   }
+
+  useEffect(() => {
+    // initialise the store
+    const s = {};
+    const ls = {...localStorage};
+
+    for(let prop in ls) {
+      if(ls.hasOwnProperty(prop)) {
+        const key = prop.replace(`${preName}-`, "");
+        s[key] = JSON.parse(ls[prop]);
+      }
+    }
+
+    setStore(s);
+  }, []);
 
   return (
     <Context.Provider value={{store, updateStore}}>
