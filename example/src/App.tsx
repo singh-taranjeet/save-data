@@ -1,10 +1,17 @@
 import React from 'react'
 
-import { ExampleComponent } from 'cache-requests'
-import 'cache-requests/dist/index.css'
+import { ExampleComponent, Provider } from 'cache-requests'
+import 'cache-requests/dist/index.css';
+import { List } from './List';
 
-const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+export default (theme: any) => {
+  console.log("context", theme);
+  return (
+    <Provider>
+      <ExampleComponent text="Create React Library Example 😄" />
+      <List />
+    </Provider>
+  );
 }
 
-export default App
+
