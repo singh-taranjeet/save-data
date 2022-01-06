@@ -1,6 +1,6 @@
 {
   "name": "save-data",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Save all data in localstorage",
   "author": "singh.taranjeet",
   "license": "MIT",
