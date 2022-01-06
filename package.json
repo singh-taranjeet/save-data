@@ -1,10 +1,10 @@
 {
-  "name": "cache-requests",
+  "name": "save-data",
   "version": "1.0.0",
-  "description": "Cache all http requests",
+  "description": "Save all data in localstorage",
   "author": "singh.taranjeet",
   "license": "MIT",
-  "repository": "singh.taranjeet/cache-requests",
+  "repository": "singh.taranjeet/save-data",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",

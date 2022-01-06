@@ -1,13 +1,13 @@
-# cache-requests
+# save-data
 
 > Cache all http requests
 
-[![NPM](https://img.shields.io/npm/v/cache-requests.svg)](https://www.npmjs.com/package/cache-requests) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/save-data.svg)](https://www.npmjs.com/package/save-data) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save cache-requests
+npm install --save save-data
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ npm install --save cache-requests
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'cache-requests'
-import 'cache-requests/dist/index.css'
+import MyComponent from 'save-data'
+import 'save-data/dist/index.css'
 
 class Example extends Component {
   render() {
