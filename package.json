@@ -2,7 +2,7 @@
   "name": "@minimal_ui/save-data",
   "version": "1.0.4",
   "description": "Save all data in localstorage",
-  "author": "singh.taranjeet",
+  "author": "taranjeet.s",
   "license": "MIT",
   "repository": "singh.taranjeet/save-data",
   "main": "dist/index.js",
