@@ -1,5 +1,5 @@
 {
-  "name": "minimal_ui/save-data",
+  "name": "@minimal_ui/save-data",
   "version": "1.0.3",
   "description": "Save all data in localstorage",
   "author": "singh.taranjeet",
@@ -15,7 +15,7 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
-    "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish --access=public",
+    "pub": "npm version patch && npm run build && npm publish --access=public",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
