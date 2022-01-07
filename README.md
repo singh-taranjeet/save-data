@@ -1,6 +1,6 @@
 # @minimal_ui/save_data
 
-> Cache all http requests
+> Save all data in localstorage. For example http api response, previous selected theme, login related info, etc.
 
 [![NPM](https://img.shields.io/npm/v/@minimal_ui/save_data.svg)](https://www.npmjs.com/package/@minimal_ui/save_data) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -14,9 +14,9 @@ npm install --save @minimal_ui/save_data
 
 ```tsx
 
-### Root component
+// Root component
 import React from 'react'
-import { Provider } from 'cache-requests';
+import { Provider } from '@minimal_ui/save_data';
 import { List } from './List';
 
 export default () => {
@@ -28,9 +28,9 @@ export default () => {
   );
 }
 
-### List component
+// List component
 import React, { useContext } from "react";
-import { Context } from 'cache-requests'
+import { Context } from '@minimal_ui/save_data'
 
 export const List = () => {
 
