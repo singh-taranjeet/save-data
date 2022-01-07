@@ -57,10 +57,11 @@ export const Provider = (props: {children: React.ReactNode}) => {
     if(localStorage && localStorage.length) {
       for ( var i: any = 0, len = localStorage.length; i < len; ++i ) {
 
-        const value = localStorage.getItem(localStorage.key(i) || "");
+        
         const key = localStorage.key(i) || "";
 
-        if(value && key) {
+        if(key && key.includes(preName)) {
+          const value = localStorage.getItem(localStorage.key(i) || "") || "{}";
           try {
             s[key.replace(`${preName}-`, "")] = JSON.parse(value);
             
