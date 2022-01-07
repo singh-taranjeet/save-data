@@ -1,10 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import {createContext} from 'react';
-import styles from './styles.module.css'
-
-interface Props {
-  text: string
-}
+import React, { useEffect, useState, createContext } from 'react';
 interface UpdateConfig {
   fetcher: () => any;
   url: string;
@@ -14,10 +8,6 @@ interface UpdateConfig {
 const preName = "save-requests";
 
 export const Context = createContext<any>({});
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
 
 export const Provider = (props: {children: React.ReactNode}) => {
 
