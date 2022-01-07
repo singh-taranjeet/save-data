@@ -13,17 +13,60 @@ npm install --save @minimal_ui/save_data
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
 
-import MyComponent from '@minimal_ui/save_data'
+### Root component
+import React from 'react'
+import { Provider } from 'cache-requests';
+import { List } from './List';
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export default () => {
+  // Add provider to parent component
+  return (
+    <Provider>
+      <List />
+    </Provider>
+  );
 }
+
+### List component
+import React, { useContext } from "react";
+import { Context } from 'cache-requests'
+
+export const List = () => {
+
+    const { updateStore, store } = useContext(Context);
+  
+    // Fetch the list of data
+    async function fetchUsers() {
+        const res: any = await fetch("https://reqres.in/api/users?page=2");
+        return res.json();
+    }
+  
+    function onClick() {
+        updateStore({
+            // Method that will fetch the list of data
+            fetcher: fetchUsers,
+            // Any unique name
+            url: "fetch-users",
+            // boolean to check for update(default = true)
+            checkForUpdate: false
+        });
+    }
+
+    return (
+      <div>
+        <button onClick={onClick}>Fetch Users</button>
+        {store?["fetch-users"]?.data?.map((item: any) =>{
+            return (
+                <div key={item.id}>{item.email}</div>
+            );
+        })}
+      </div>
+    );
+  
+  }
 ```
 
 ## License
 
-MIT © [singh.taranjeet](https://github.com/singh.taranjeet)
+MIT © [singh.taranjeet](https://github.com/singh-taranjeet)

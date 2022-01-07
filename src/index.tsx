@@ -1,7 +1,7 @@
 import React, { useEffect, useState, createContext } from 'react';
 interface UpdateConfig {
   fetcher: () => any;
-  url: string;
+  name: string;
   checkForUpdate: boolean
 }
 
@@ -15,27 +15,27 @@ export const Provider = (props: {children: React.ReactNode}) => {
 
   async function updateStore(config: UpdateConfig) {
 
-    const {fetcher, url, checkForUpdate = true} = config;
+    const {fetcher, name, checkForUpdate = true} = config;
 
-    const data = getItem(url);
+    const data = getItem(name);
     if(data && data !== "undefined" && !checkForUpdate) {
       setStore({
         ...store,
-        [url]: JSON.parse(data)
+        [name]: JSON.parse(data)
       });
     }
     else {
       const response = await fetcher();
       setStore({
         ...store,
-        [url]: response
+        [name]: response
       });
 
       if(response) {
-        setItem(url, JSON.stringify(response));
+        setItem(name, JSON.stringify(response));
       }
       else {
-        deleteKey(url);
+        deleteKey(name);
       }
     }
   }
