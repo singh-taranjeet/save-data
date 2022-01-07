@@ -10,12 +10,12 @@
 npm install --save @minimal_ui/save_data
 ```
 ## How it works
-```
-It saves all the data in the localstorage. 
+
+> It saves all the data in the localstorage. So the data can still be retrieved even when the browser is quit.
 For every request to udpate the data it checks if the data is already stored or not.
 If the data is present then it returns the saved data.
 Else it calls the method to refresh the data.
-```
+
 
 ## Usage
 
