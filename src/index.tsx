@@ -2,7 +2,8 @@ import React, { useEffect, useState, createContext } from 'react';
 interface UpdateConfig {
   fetcher: () => any;
   name: string;
-  checkForUpdate: boolean
+  checkForUpdate: boolean;
+  refresh: boolean
 }
 
 const preName = "save-requests";
@@ -15,10 +16,13 @@ export const Provider = (props: {children: React.ReactNode}) => {
 
   async function updateStore(config: UpdateConfig) {
 
-    const {fetcher, name, checkForUpdate = true} = config;
+    const {fetcher, name, checkForUpdate = true, refresh = false} = config;
 
     const data = getItem(name);
-    if(data && data !== "undefined" && !checkForUpdate) {
+    // If data is not present
+    // Check is not required
+    // Refresh is not required
+    if(data && data !== "undefined" && !checkForUpdate && !refresh) {
       setStore({
         ...store,
         [name]: JSON.parse(data)

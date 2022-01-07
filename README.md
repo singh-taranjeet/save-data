@@ -20,7 +20,6 @@ Else it calls the method to refresh the data.
 ## Usage
 
 ```tsx
-
 // Root component
 import React from 'react'
 import { Provider } from '@minimal_ui/save_data';
