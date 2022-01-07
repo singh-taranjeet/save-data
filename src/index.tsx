@@ -53,7 +53,9 @@ export const Provider = (props: {children: React.ReactNode}) => {
   useEffect(() => {
     // initialise the store
     const s = {};
-    const ls = {...localStorage};
+    const ls = {
+      red: "df"
+    };
 
     for(let prop in ls) {
       if(ls.hasOwnProperty(prop)) {
