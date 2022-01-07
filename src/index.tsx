@@ -53,15 +53,24 @@ export const Provider = (props: {children: React.ReactNode}) => {
   useEffect(() => {
     // initialise the store
     const s = {};
-    const ls = {...localStorage};
 
-    for(let prop in ls) {
-      if(ls.hasOwnProperty(prop)) {
-        const key = prop.replace(`${preName}-`, "");
-        s[key] = JSON.parse(ls[prop]);
+    if(localStorage && localStorage.length) {
+      for ( var i: any = 0, len = localStorage.length; i < len; ++i ) {
+
+        
+        const key = localStorage.key(i) || "";
+
+        if(key && key.includes(preName)) {
+          const value = localStorage.getItem(key) || "{}";
+          try {
+            s[key.replace(`${preName}-`, "")] = JSON.parse(value);
+            
+          } catch (error) {
+            console.error(`Problem with save-data storage KEY:${key}`);
+          }
+        }
       }
     }
-
     setStore(s);
   }, []);
 
