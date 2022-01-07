@@ -13,18 +13,15 @@ export const List = () => {
     function onClick() {
         updateStore({
             fetcher: fetchUsers,
-            url: "hello",
+            name: "hello",
             checkForUpdate: false
         });
     }
 
-    console.log("Store", store);
-
     return (
       <div>
         <button onClick={onClick}>Fetch Users</button>
-        {store && store.hello && store.hello.data
-        && store.hello.data.map((item: any) =>{
+        {store?.hello?.data?.map((item: any) =>{
             return (
                 <div key={item.id}>{item.email}</div>
             );

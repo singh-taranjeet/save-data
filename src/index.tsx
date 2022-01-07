@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import {createContext} from 'react';
-import styles from './styles.module.css'
-
-interface Props {
-  text: string
-}
+import React, { useEffect, useState, createContext } from 'react';
 interface UpdateConfig {
   fetcher: () => any;
-  url: string;
+  name: string;
   checkForUpdate: boolean
 }
 
@@ -15,37 +9,33 @@ const preName = "save-requests";
 
 export const Context = createContext<any>({});
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
-
 export const Provider = (props: {children: React.ReactNode}) => {
 
   const [store, setStore] = useState<any>({});
 
   async function updateStore(config: UpdateConfig) {
 
-    const {fetcher, url, checkForUpdate = true} = config;
+    const {fetcher, name, checkForUpdate = true} = config;
 
-    const data = getItem(url);
+    const data = getItem(name);
     if(data && data !== "undefined" && !checkForUpdate) {
       setStore({
         ...store,
-        [url]: JSON.parse(data)
+        [name]: JSON.parse(data)
       });
     }
     else {
       const response = await fetcher();
       setStore({
         ...store,
-        [url]: response
+        [name]: response
       });
 
       if(response) {
-        setItem(url, JSON.stringify(response));
+        setItem(name, JSON.stringify(response));
       }
       else {
-        deleteKey(url);
+        deleteKey(name);
       }
     }
   }
