@@ -1,6 +1,6 @@
 {
   "name": "@minimal_ui/save_data",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Save all data in localstorage",
   "author": "taranjeet.s",
   "license": "MIT",
