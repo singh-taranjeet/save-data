@@ -9,6 +9,11 @@
 ```bash
 npm install --save @minimal_ui/save_data
 ```
+## How it works
+```
+It saves all the data in the localstorage. When there is need to access it checks if the data is already stored, if the data is present then it returns the saved data.
+Else it calls the Fetcher method to refresh the data.
+```
 
 ## Usage
 
@@ -69,4 +74,4 @@ export const List = () => {
 
 ## License
 
-MIT © [singh.taranjeet](https://github.com/singh-taranjeet)
+MIT © [singh-taranjeet](https://github.com/singh-taranjeet)
