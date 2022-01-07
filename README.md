@@ -11,8 +11,10 @@ npm install --save @minimal_ui/save_data
 ```
 ## How it works
 ```
-It saves all the data in the localstorage. When there is need to access it checks if the data is already stored, if the data is present then it returns the saved data.
-Else it calls the Fetcher method to refresh the data.
+It saves all the data in the localstorage. 
+For every request to udpate the data it checks if the data is already stored or not.
+If the data is present then it returns the saved data.
+Else it calls the method to refresh the data.
 ```
 
 ## Usage
