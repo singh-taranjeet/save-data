@@ -11,6 +11,15 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "react",
+    "localstorage",
+    "React-Context",
+    "context",
+    "save data to localstorage",
+    "async",
+    "http requests"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
