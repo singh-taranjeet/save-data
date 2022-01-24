@@ -4,7 +4,7 @@
   "description": "Save all data in localstorage",
   "author": "taranjeet.s",
   "license": "MIT",
-  "repository": "singh.taranjeet/save-data",
+  "repository": "singh-taranjeet/save-data",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
